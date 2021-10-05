@@ -41,15 +41,15 @@ GLOBAL_LIST_INIT(science_positions, list(
 
 //BS12 EDIT
 GLOBAL_LIST_INIT(support_positions, list(
-	"Head of Personnel",
+	//"Head of Personnel",
 	"Bartender",
 	"Botanist",
 	"Chef",
 	"Janitor",
 	"Librarian",
-	"Quartermaster",
-	"Cargo Technician",
-	"Shaft Miner",
+	//"Quartermaster",
+	//"Cargo Technician",
+	//"Shaft Miner",
 	"Internal Affairs Agent",
 	"Chaplain",
 	"Clown",

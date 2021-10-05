@@ -31,7 +31,16 @@ SUBSYSTEM_DEF(jobs)
 
 /datum/controller/subsystem/jobs/proc/SetupOccupations(list/faction = list("Station"))
 	occupations = list()
-	var/list/all_jobs = subtypesof(/datum/job)
+	var/list/all_jobs = list(
+		/datum/job/captain,
+		/datum/job/chief_engineer,
+		/datum/job/cmo,
+		/datum/job/rd,
+		/datum/job/chef,
+		/datum/job/qm
+	)
+
+	//subtypesof(/datum/job)
 	if(!all_jobs.len)
 		to_chat(world, "<span class='warning'>Error setting up jobs, no job datums found</span>")
 		return 0

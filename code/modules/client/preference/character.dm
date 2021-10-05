@@ -1957,7 +1957,7 @@
 					//the last job's selection color. Creating a rather nice effect.
 					for(var/i in 1 to limit - index)
 						html += "<tr bgcolor='[lastJob.selection_color]'><td width='60%' align='right'>&nbsp</td><td>&nbsp</td></tr>"
-				html += "</table></td><td width='20%'><table width='100%' cellpadding='1' cellspacing='0'>"
+				html += "</table></td><td width='20%'><table width='80%' cellpadding='1' cellspacing='0'>"
 				index = 0
 
 			html += "<tr bgcolor='[job.selection_color]'><td width='60%' align='right'>"
@@ -2046,8 +2046,8 @@
 
 			html += "</td></tr>"
 
-		for(var/i in 1 to limit - index) // Finish the column so it is even
-			html += "<tr bgcolor='[lastJob ? lastJob.selection_color : "#ffffff"]'><td width='60%' align='right'>&nbsp</td><td>&nbsp</td></tr>"
+		//for(var/i in 1 to limit - index) // Finish the column so it is even
+		//	html += "<tr bgcolor='[lastJob ? lastJob.selection_color : "#ffffff"]'><td width='60%' align='right'>&nbsp</td><td>&nbsp</td></tr>"
 
 		html += "</td></tr></table>"
 		html += "</center></table>"
@@ -2066,7 +2066,7 @@
 
 	user << browse(null, "window=preferences")
 //		user << browse(HTML, "window=mob_occupation;size=[width]x[height]")
-	var/datum/browser/popup = new(user, "mob_occupation", "<div align='center'>Occupation Preferences</div>", width, height)
+	var/datum/browser/popup = new(user, "mob_occupation", "<div align='center'>Occupation Preferences</div>", width, 500)
 	popup.set_window_options("can_close=0")
 	var/html_string = html.Join()
 	popup.set_content(html_string)
