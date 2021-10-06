@@ -124,6 +124,8 @@ Class Procs:
 	var/datum/radio_frequency/radio_connection
 	/// This is if the machinery is being repaired
 	var/being_repaired = FALSE
+	var/taskpath = null
+	var/mob/interact_user = null
 
 /*
  * reimp, attempts to flicker this machinery if the behavior is supported.

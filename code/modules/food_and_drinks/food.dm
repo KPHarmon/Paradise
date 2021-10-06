@@ -16,6 +16,7 @@
 	var/antable = TRUE // Will ants come near it?
 	var/ant_location = null
 	var/ant_timer = null
+	var/taskpath = null //for objectives
 	resistance_flags = FLAMMABLE
 	container_type = INJECTABLE
 

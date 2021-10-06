@@ -86,7 +86,6 @@
 			var/datum/job_objective/task = user.mind.findJobTask(taskpath)
 			if(istype(task))
 				task.unit_completed()
-
 		new result(get_turf(holder))
 		spawn()
 			qdel(holder)

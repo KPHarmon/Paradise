@@ -415,6 +415,7 @@
 		/obj/item/reagent_containers/food/snacks/boiledegg,
 		/obj/item/reagent_containers/food/snacks/grown/tomato
 	)
+	taskpath = /datum/job_objective/make_super_burger
 	result = /obj/item/reagent_containers/food/snacks/superbiteburger
 
 /datum/recipe/microwave/candiedapple

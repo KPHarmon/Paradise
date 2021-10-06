@@ -39,6 +39,7 @@
 	var/result //example: = /obj/item/reagent_containers/food/snacks/donut
 	var/time = 100 // 1/10 part of second
 	var/byproduct		// example: = /obj/item/kitchen/mould		// byproduct to return, such as a mould or trash
+	var/taskpath = null // Path of job objective completed.
 
 /datum/recipe/proc/check_reagents(datum/reagents/avail_reagents) //1=precisely, 0=insufficiently, -1=superfluous
 	. = 1
@@ -83,7 +84,8 @@
 	return result_obj
 
 // food-related
-/datum/recipe/proc/make_food(obj/container)
+/datum/recipe/proc/make_food(obj/container, mob/user as mob)
+	to_chat(world, "User for food recipe [user]") // NOT TRIGGERED, check microwave
 	var/obj/result_obj = new result(container)
 	for(var/obj/O in (container.contents-result_obj))
 		if(O.reagents)
@@ -92,6 +94,12 @@
 			O.reagents.trans_to(result_obj, O.reagents.total_volume)
 		qdel(O)
 	container.reagents.clear_reagents()
+
+	if(taskpath)
+		var/datum/job_objective/task = user.mind.findJobTask(taskpath)
+		if(istype(task))
+			task.unit_completed()
+
 	return result_obj
 
 /proc/select_recipe(list/datum/recipe/available_recipes, obj/obj, exact = 1 as num, list/ignored_items = null)

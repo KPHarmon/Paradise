@@ -55,6 +55,10 @@
 	alt_titles = list("Cook","Culinary Artist","Butcher")
 	outfit = /datum/outfit/job/chef
 
+	required_objectives = list(
+		/datum/job_objective/make_super_burger
+	)
+
 /datum/outfit/job/chef
 	name = "Chef"
 	jobtype = /datum/job/chef

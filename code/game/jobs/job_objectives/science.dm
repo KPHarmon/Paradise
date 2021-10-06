@@ -22,6 +22,7 @@
 // Robotics
 /////////////////////////////////////////////////////////////////////////////////////////
 
+
 //Cyborgs
 /datum/job_objective/make_cyborg
 	completion_payment = 100
@@ -29,9 +30,9 @@
 
 /datum/job_objective/make_cyborg/get_description()
 	var/desc = "Make a cyborg."
-	desc += "([units_completed] created.)"
+	if(completed)
+		desc += " <font color='green'><B>Completed!</B></font>"
 	return desc
-
 
 
 //RIPLEY's
@@ -41,5 +42,6 @@
 
 /datum/job_objective/make_ripley/get_description()
 	var/desc = "Make a Ripley or Firefighter."
-	desc += "([units_completed] created.)"
+	if(completed)
+		desc += " <font color='green'><B>Completed!</B></font>"
 	return desc
