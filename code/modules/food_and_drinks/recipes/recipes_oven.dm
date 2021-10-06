@@ -224,6 +224,7 @@
 		/obj/item/reagent_containers/food/snacks/cheesewedge,
 		/obj/item/reagent_containers/food/snacks/grown/tomato
 	)
+	taskpath = /datum/job_objective/make_pizza
 	result = /obj/item/reagent_containers/food/snacks/sliceable/pizza/margherita
 
 /datum/recipe/oven/meatpizza
@@ -235,6 +236,7 @@
 		/obj/item/reagent_containers/food/snacks/cheesewedge,
 		/obj/item/reagent_containers/food/snacks/grown/tomato
 	)
+	taskpath = /datum/job_objective/make_pizza
 	result = /obj/item/reagent_containers/food/snacks/sliceable/pizza/meatpizza
 
 /datum/recipe/oven/syntipizza
@@ -246,6 +248,7 @@
 		/obj/item/reagent_containers/food/snacks/cheesewedge,
 		/obj/item/reagent_containers/food/snacks/grown/tomato
 	)
+	taskpath = /datum/job_objective/make_pizza
 	result = /obj/item/reagent_containers/food/snacks/sliceable/pizza/meatpizza
 
 /datum/recipe/oven/mushroompizza
@@ -260,6 +263,7 @@
 		/obj/item/reagent_containers/food/snacks/grown/mushroom,
 		/obj/item/reagent_containers/food/snacks/grown/tomato
 	)
+	taskpath = /datum/job_objective/make_pizza
 	result = /obj/item/reagent_containers/food/snacks/sliceable/pizza/mushroompizza
 
 /datum/recipe/oven/vegetablepizza
@@ -271,6 +275,7 @@
 		/obj/item/reagent_containers/food/snacks/grown/corn,
 		/obj/item/reagent_containers/food/snacks/grown/tomato
 	)
+	taskpath = /datum/job_objective/make_pizza
 	result = /obj/item/reagent_containers/food/snacks/sliceable/pizza/vegetablepizza
 
 /datum/recipe/oven/hawaiianpizza
@@ -282,6 +287,7 @@
 		/obj/item/reagent_containers/food/snacks/pineappleslice,
 		/obj/item/reagent_containers/food/snacks/meat,
 	)
+	taskpath = /datum/job_objective/make_pizza
 	result = /obj/item/reagent_containers/food/snacks/sliceable/pizza/hawaiianpizza
 
 /datum/recipe/oven/macncheesepizza
@@ -291,6 +297,7 @@
 		/obj/item/reagent_containers/food/snacks/cheesewedge,
 		/obj/item/reagent_containers/food/snacks/macncheese,
 	)
+	taskpath = /datum/job_objective/make_pizza
 	result = /obj/item/reagent_containers/food/snacks/sliceable/pizza/macpizza
 
 /datum/recipe/oven/amanita_pie

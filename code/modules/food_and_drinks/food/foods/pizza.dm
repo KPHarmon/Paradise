@@ -49,7 +49,6 @@
 	list_reagents = list("plantmatter" = 30, "vitamin" = 5)
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "mushroom" = 1)
 
-
 /obj/item/reagent_containers/food/snacks/mushroompizzaslice
 	name = "mushroom pizza slice"
 	desc = "Maybe it is the last slice of pizza in your life."
@@ -65,7 +64,6 @@
 	slice_path = /obj/item/reagent_containers/food/snacks/vegetablepizzaslice
 	list_reagents = list("plantmatter" = 25, "tomatojuice" = 6, "oculine" = 12, "vitamin" = 5)
 	tastes = list("crust" = 1, "tomato" = 1, "cheese" = 1, "carrot" = 1, "vegetables" = 1)
-
 
 /obj/item/reagent_containers/food/snacks/vegetablepizzaslice
 	name = "vegetable pizza slice"

@@ -15,13 +15,13 @@
 
 
 
-//Pizzas
-/datum/job_objective/make_pizzas
+//Pizza
+/datum/job_objective/make_pizza
 	completion_payment = 300
-	per_unit = 2
+	per_unit = 1
 
-/datum/job_objective/make_pizzas/get_description()
-	var/desc = "Make 2 unique pizzas."
+/datum/job_objective/make_pizza/get_description()
+	var/desc = "Make 1 Pizza."
 	if(completed)
 		desc += " <font color='green'><B>Completed!</B></font>"
 	return desc

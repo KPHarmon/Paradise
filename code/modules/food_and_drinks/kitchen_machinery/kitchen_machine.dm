@@ -304,7 +304,7 @@
 
 //make_recipes(recipes_to_make): cycles through the supplied list of recipes and creates each recipe associated with the "source" for that entry
 /obj/machinery/kitchen_machine/proc/make_recipes(list/recipes_to_make)
-	to_chat(world, "Make Recipe User: [interact_user]")
+
 	if(!recipes_to_make)
 		return
 	var/datum/reagents/temp_reagents = new(500)
@@ -338,10 +338,13 @@
 				mb.make_dirty(5 * efficiency)
 				mb.forceMove(loc)
 		stop()
-		// [OBJECTIVES]
 
+		// [OBJECTIVES]
 		to_chat(world, "Recipe: [recipe]")
 		to_chat(world, "Taskpath: [recipe.taskpath]")
+		to_chat(world, "User: [interact_user]")
+
+
 		if(recipe.taskpath)
 			var/datum/job_objective/task = interact_user.mind.findJobTask(recipe.taskpath)
 			if(istype(task))

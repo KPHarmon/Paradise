@@ -56,7 +56,8 @@
 	outfit = /datum/outfit/job/chef
 
 	required_objectives = list(
-		/datum/job_objective/make_super_burger
+		/datum/job_objective/make_super_burger,
+		/datum/job_objective/make_pizza
 	)
 
 /datum/outfit/job/chef
