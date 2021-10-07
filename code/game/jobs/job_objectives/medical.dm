@@ -1,38 +1,37 @@
 /////////////////////////////////////////////////////////////////////////////////////////
-// Chef
+// CMO
 /////////////////////////////////////////////////////////////////////////////////////////
 
-//Super Burger
-/datum/job_objective/make_super_burger
-	completion_payment = 200
-	per_unit = 1
-
-/datum/job_objective/make_super_burger/get_description()
-	var/desc = "Make a Super Bite Burger."
-	if(completed)
-		desc += " <font color='green'><B>Completed!</B></font>"
-	return desc
-
-
-
-//Pizza
-/datum/job_objective/make_pizza
+//Cook Meth
+/datum/job_objective/cook_meth
 	completion_payment = 300
 	per_unit = 1
 
-/datum/job_objective/make_pizza/get_description()
-	var/desc = "Make a Pizza."
+/datum/job_objective/cook_meth/get_description()
+	var/desc = "Synthesize meth."
 	if(completed)
 		desc += " <font color='green'><B>Completed!</B></font>"
 	return desc
 
-//Cotton Candy
-/datum/job_objective/make_cottoncandy
+
+//Cook Medicine
+/datum/job_objective/cook_medicine
+	completion_payment = 300
+	per_unit = 1
+
+/datum/job_objective/cook_medicine/get_description()
+	var/desc = "Synthesize a Bottle of Oculine."
+	if(completed)
+		desc += " <font color='green'><B>Completed!</B></font>"
+	return desc
+
+//Perform Surgery
+/datum/job_objective/perform_surgery
 	completion_payment = 500
 	per_unit = 1
 
-/datum/job_objective/make_cottoncandy/get_description()
-	var/desc = "Make a Rainbow Cotton Candy."
+/datum/job_objective/perform_surgery/get_description()
+	var/desc = "Perform a surgery."
 	if(completed)
 		desc += " <font color='green'><B>Completed!</B></font>"
 	return desc

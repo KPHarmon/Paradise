@@ -39,6 +39,7 @@
 	required_reagents = list("ephedrine" = 1, "iodine" = 1, "phosphorus" = 1, "hydrogen" = 1)
 	result_amount = 4
 	min_temp = T0C + 100
+	taskpath = /datum/job_objective/cook_meth
 
 /datum/chemical_reaction/methamphetamine/on_reaction(datum/reagents/holder)
 	var/turf/T = get_turf(holder.my_atom)

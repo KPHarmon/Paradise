@@ -242,6 +242,7 @@
 		/obj/item/reagent_containers/food/snacks/candy/cotton/purple,
 		/obj/item/reagent_containers/food/snacks/candy/cotton/pink,
 		)
+	taskpath = /datum/job_objective/make_cottoncandy
 	result = /obj/item/reagent_containers/food/snacks/candy/cotton/rainbow
 
 /datum/recipe/candy/cottoncandy_rainbow2
@@ -255,6 +256,7 @@
 		/obj/item/reagent_containers/food/snacks/candy/cotton/purple,
 		/obj/item/reagent_containers/food/snacks/candy/cotton/pink,
 		)
+	taskpath = /datum/job_objective/make_cottoncandy
 	result = /obj/item/reagent_containers/food/snacks/candy/cotton/bad_rainbow
 
 // ***********************************************************

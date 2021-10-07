@@ -79,7 +79,7 @@
 
 /datum/construction/reversible/mecha/ripley
 	result = "/obj/mecha/working/ripley"
-	taskpath = /datum/job_objective/make_ripley
+	taskpath = /datum/job_objective/make_exosuit
 	steps = list(
 					//1
 					list("key"=TOOL_WELDER,
@@ -283,6 +283,7 @@
 
 /datum/construction/reversible/mecha/gygax
 	result = "/obj/mecha/combat/gygax"
+	taskpath = /datum/job_objective/make_exosuit
 	steps = list(
 					//1
 					list("key"=TOOL_WELDER,
@@ -558,7 +559,7 @@
 
 /datum/construction/reversible/mecha/firefighter
 	result = "/obj/mecha/working/ripley/firefighter"
-	taskpath = /datum/job_objective/make_ripley
+	taskpath = /datum/job_objective/make_exosuit
 	steps = list(
 					//1
 					list("key"=TOOL_WELDER,
@@ -775,6 +776,7 @@
 
 /datum/construction/reversible/mecha/honker
 	result = "/obj/mecha/combat/honker"
+	taskpath = /datum/job_objective/make_exosuit
 	steps = list(list("key"=/obj/item/bikehorn),//1
 					 list("key"=/obj/item/clothing/shoes/clown_shoes),//2
 					 list("key"=/obj/item/bikehorn),//3
@@ -846,6 +848,7 @@
 
 /datum/construction/reversible/mecha/reticence
 	result = "/obj/mecha/combat/reticence"
+	taskpath = /datum/job_objective/make_exosuit
 	steps = list(list("key"=/obj/effect/dummy/mecha_emote_step),//1
 					 list("key"=/obj/item/clothing/suit/suspenders),//2
 					 list("key"=/obj/effect/dummy/mecha_emote_step),//3
@@ -922,6 +925,7 @@
 
 /datum/construction/reversible/mecha/durand
 	result = "/obj/mecha/combat/durand"
+	taskpath = /datum/job_objective/make_exosuit
 	steps = list(
 					//1
 					list("key"=TOOL_WELDER,
@@ -1171,6 +1175,7 @@
 
 /datum/construction/mecha/phazon_chassis
 	result = "/obj/mecha/combat/phazon"
+	taskpath = /datum/job_objective/make_exosuit
 	steps = list(list("key"=/obj/item/mecha_parts/part/phazon_torso),//1
 					 list("key"=/obj/item/mecha_parts/part/phazon_left_arm),//2
 					 list("key"=/obj/item/mecha_parts/part/phazon_right_arm),//3
@@ -1520,6 +1525,7 @@
 
 /datum/construction/reversible/mecha/odysseus
 	result = "/obj/mecha/medical/odysseus"
+	taskpath = /datum/job_objective/make_exosuit
 	steps = list(
 					//1
 					list("key"=TOOL_WELDER,

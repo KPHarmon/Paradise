@@ -377,7 +377,7 @@
 		R.on_update(A)
 	update_total()
 
-/datum/reagents/proc/handle_reactions()
+/datum/reagents/proc/handle_reactions(mob/user as mob)
 	if(flags & REAGENT_NOREACT)
 		return //Yup, no reactions here. No siree.
 
@@ -467,6 +467,14 @@
 
 					C.on_reaction(src, created_volume)
 					reaction_occured = TRUE
+
+					// [OBJECTIVES]
+					if(C.taskpath)
+						for(var/mob/living/player in GLOB.player_list)
+							var/datum/job_objective/task = player.mind.findJobTask(C.taskpath)
+							if(istype(task))
+								task.unit_completed()
+
 					break
 
 	while(reaction_occured)

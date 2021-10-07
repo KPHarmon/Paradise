@@ -16,6 +16,8 @@
 	var/max_temp = 9999		//Maximum temperature allowed for the reaction to occur (cool to/below this).
 	var/mix_message = "The solution begins to bubble."
 	var/mix_sound = 'sound/effects/bubbles.ogg'
+	var/taskpath = null
+
 
 /datum/chemical_reaction/proc/on_reaction(datum/reagents/holder, created_volume)
 	return

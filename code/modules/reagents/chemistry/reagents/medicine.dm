@@ -627,6 +627,7 @@
 	reagent_state = LIQUID
 	color = "#C8A5DC"
 	taste_description = "clarity"
+	taskpath = /datum/job_objective/cook_medicine
 
 /datum/reagent/medicine/oculine/on_mob_life(mob/living/M)
 	var/update_flags = STATUS_UPDATE_NONE

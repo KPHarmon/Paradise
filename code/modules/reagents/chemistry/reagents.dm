@@ -32,6 +32,7 @@
 	var/drink_desc = "You can't really tell what this is."
 	var/taste_mult = 1 //how easy it is to taste - the more the easier
 	var/taste_description = "metaphorical salt"
+	var/taskpath = null
 
 /datum/reagent/Destroy()
 	. = ..()

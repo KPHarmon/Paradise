@@ -24,7 +24,7 @@
 	required_objectives = list(
 		/datum/job_objective/further_research,
 		/datum/job_objective/make_cyborg,
-		/datum/job_objective/make_ripley
+		/datum/job_objective/make_exosuit
 	)
 
 	outfit = /datum/outfit/job/rd
@@ -107,7 +107,7 @@
 
 	required_objectives = list(
 		/datum/job_objective/make_cyborg,
-		/datum/job_objective/make_ripley
+		/datum/job_objective/make_exosuit
 	)
 
 	outfit = /datum/outfit/job/roboticist
