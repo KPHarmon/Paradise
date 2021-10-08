@@ -23,7 +23,7 @@
 	// All science-y guys get bonuses for maxing out their tech.
 	required_objectives = list(
 		/datum/job_objective/further_research,
-		/datum/job_objective/make_cyborg,
+		///datum/job_objective/make_cyborg,
 		/datum/job_objective/make_exosuit
 	)
 
