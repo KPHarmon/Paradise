@@ -57,8 +57,8 @@
 
 	required_objectives = list(
 		/datum/job_objective/make_super_burger,
-		/datum/job_objective/make_pizza,
-		/datum/job_objective/make_cottoncandy
+		/datum/job_objective/make_pizza
+		///datum/job_objective/make_cottoncandy
 	)
 
 /datum/outfit/job/chef

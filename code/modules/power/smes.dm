@@ -29,6 +29,8 @@
 	var/output_level_max = 200000	// cap on output_level
 	var/output_used = 0				// amount of power actually outputted. may be less than output_level if the powernet returns excess power
 
+	var/smes_objective = 0
+
 	var/name_tag = null
 	var/obj/machinery/power/terminal/terminal = null
 
@@ -191,6 +193,17 @@
 
 				make_terminal(user, tempDir, tempLoc)
 				terminal.connect_to_network()
+
+/*	// [OBJECTIVE]
+	to_chat("Make SMES")
+	if(smes_objective == 0)
+		if(/obj/item/stock_parts/cell/hyper in component_parts && /obj/item/stock_parts/capacitor/super in component_parts)
+			to_chat(world, "passed check")
+			var/datum/job_objective/task = user.mind.findJobTask(/datum/job_objective/build_smes)
+			if(istype(task))
+				task.unit_completed()
+				smes_objective = 1
+*/
 		return
 
 	//disassembling the terminal

@@ -20,6 +20,10 @@
 	var/next_record = 0
 	/// The history list itself of the power
 	var/list/history = list()
+	/// Check to see if objective is complete
+	var/power_objective_complete = FALSE
+	var/smes_objective_complete = FALSE
+
 
 /obj/machinery/computer/monitor/secret //Hides the power monitor (such as ones on ruins & CentCom) from PDA's to prevent metagaming.
 	name = "outdated power monitoring console"
@@ -99,3 +103,12 @@
 		demand += powernet.viewload
 		if(length(demand) > record_size)
 			demand.Cut(1, 2)
+
+		// [OBJECTIVES]
+		if(power_objective_complete == FALSE)
+			if(powernet.viewload*2 <= powernet.viewavail)
+				for(var/mob/living/player in GLOB.player_list)
+					var/datum/job_objective/task = player.mind.findJobTask(/datum/job_objective/more_power)
+					if(istype(task))
+						task.unit_completed()
+						power_objective_complete = TRUE
