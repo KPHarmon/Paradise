@@ -133,6 +133,12 @@
 	minimal_access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_QM, ACCESS_MINT, ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_MINERAL_STOREROOM)
 	outfit = /datum/outfit/job/qm
 
+	required_objectives = list(
+		/datum/job_objective/hoard_points,
+		/datum/job_objective/buy_hats
+	)
+
+
 /datum/outfit/job/qm
 	name = "Quartermaster"
 	jobtype = /datum/job/qm
@@ -144,7 +150,6 @@
 	id = /obj/item/card/id/supply
 	l_hand = /obj/item/clipboard
 	pda = /obj/item/pda/quartermaster
-
 
 
 /datum/job/cargo_tech

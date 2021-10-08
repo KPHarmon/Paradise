@@ -300,6 +300,11 @@
 	Crate.name = "[object.containername] [comment ? "([comment])":"" ]"
 	if(object.access)
 		Crate:req_access = list(text2num(object.access))
+	if(object.taskpath != null)
+		for(var/mob/living/player in GLOB.player_list)
+			var/datum/job_objective/task = player.mind.findJobTask(object.taskpath)
+			if(istype(task))
+				task.unit_completed()
 
 	//create the manifest slip
 	var/obj/item/paper/manifest/slip = new /obj/item/paper/manifest()
@@ -451,6 +456,12 @@
 	data["at_station"] = SSshuttle.supply.getDockedId() == "supply_home"
 	data["timeleft"] = SSshuttle.supply.timeLeft(600)
 	data["can_launch"] = !SSshuttle.supply.canMove()
+
+	if(SSshuttle.points > 1000)
+		for(var/mob/living/player in GLOB.player_list)
+			var/datum/job_objective/task = player.mind.findJobTask(/datum/job_objective/hoard_points)
+			if(istype(task))
+				task.unit_completed()
 
 	return data
 

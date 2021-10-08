@@ -61,6 +61,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	var/times_ordered = 0
 	/// List of names for being done in TGUI
 	var/list/ui_manifest = list()
+	var/taskpath = null
 
 
 /datum/supply_packs/New()
@@ -1343,6 +1344,47 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	announce_beacons = list("Engineering" = list("Engineering", "Chief Engineer's Desk", "Atmospherics"))
 
 
+/datum/supply_packs/materials/plasma20
+	name = "20 Plasma Sheets Crate"
+	contains = list(/obj/item/stack/sheet/metal)
+	amount = 20
+	cost = 100
+	containername = "plasma sheets crate"
+
+/datum/supply_packs/materials/silver10
+	name = "10 Silver Ores Crate"
+	contains = list(/obj/item/stack/ore/silver)
+	amount = 10
+	cost = 100
+	containername = "silver ore crate"
+
+/datum/supply_packs/materials/gold10
+	name = "10 Gold Ores Crate"
+	contains = list(/obj/item/stack/ore/gold)
+	amount = 10
+	cost = 100
+	containername = "gold ore crate"
+/datum/supply_packs/materials/diamond10
+	name = "10 Diamond Ores Crate"
+	contains = list(/obj/item/stack/ore/diamond)
+	amount = 20
+	cost = 100
+	containername = "diamond ore crate"
+
+/datum/supply_packs/materials/uranium20
+	name = "10 Uranium Ores Crate"
+	contains = list(/obj/item/stack/ore/uranium)
+	amount = 10
+	cost = 100
+	containername = "uranium ore crate"
+
+/datum/supply_packs/materials/bluespace10
+	name = "10 Bluespace Ores Crate"
+	contains = list(/obj/item/stack/ore/bluespace_crystal)
+	amount = 10
+	cost = 150
+	containername = "bluespace ore crate"
+
 /datum/supply_packs/materials/metal50
 	name = "50 Metal Sheets Crate"
 	contains = list(/obj/item/stack/sheet/metal)
@@ -1695,6 +1737,7 @@ GLOBAL_LIST_INIT(all_supply_groups, list(SUPPLY_EMERGENCY,SUPPLY_SECURITY,SUPPLY
 	name = "Collectible Hats Crate"
 	cost = 200
 	containername = "collectable hats crate! Brought to you by Bass.inc!"
+	taskpath = /datum/job_objective/buy_hats
 
 /datum/supply_packs/misc/randomised/New()
 	manifest += "Contains any [num_contained] of:"
