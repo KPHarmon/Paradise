@@ -432,27 +432,37 @@ SUBSYSTEM_DEF(jobs)
 		alt_title = H.mind.role_alt_title
 
 		CreateMoneyAccount(H, rank, job)
-
-	to_chat(H, "<B>You are the [alt_title ? alt_title : rank].</B>")
-	to_chat(H, "<b>As the [alt_title ? alt_title : rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>")
+	to_chat(H, "----------------------------------------------------")
+	to_chat(H, "You are the <span class='darkmblue'><B>[alt_title ? alt_title : rank]</B></span>.")
+	//to_chat(H, "<b>As the [alt_title ? alt_title : rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>")
 	if(job.is_service)
-		to_chat(H, "<b>As a member of Service, make sure to read up on your <a href=\"https://www.paradisestation.org/wiki/index.php/Standard_Operating_Procedure_&#40;Service&#41\">Department SOP</a></b>")
+		to_chat(H, "View the <a href=\"https://www.paradisestation.org/wiki/index.php/Guide_to_Food_and_Drinks\"><b>Nanotrasen Service Manual</b></a>")
 	if(job.is_supply)
-		to_chat(H, "<b>As a member of Supply, make sure to read up on your <a href=\"https://www.paradisestation.org/wiki/index.php/Standard_Operating_Procedure_&#40;Supply&#41\">Department SOP</a></b>")
+		to_chat(H, "View the <a href=\"https://www.paradisestation.org/wiki/index.php/Supply_Crates\"><b>Nanotrasen Supply Manual</b></a>")
 	if(job.is_command)
 		to_chat(H, "<b>As an important member of Command, read up on your <a href=\"https://www.paradisestation.org/wiki/index.php/Standard_Operating_Procedure_&#40;Command&#41\">Department SOP</a></b>")
 	if(job.is_legal)
 		to_chat(H, "<b>Your job requires complete knowledge of <a href=\"https://www.paradisestation.org/wiki/index.php/Space_law\">Space Law</a> and <a href=\"https://www.paradisestation.org/wiki/index.php/Legal_Standard_Operating_Procedure\">Legal Standard Operating Procedure</a></b>")
 	if(job.is_engineering)
-		to_chat(H, "<b>As a member of Engineering, make sure to read up on your <a href=\"https://www.paradisestation.org/wiki/index.php/Standard_Operating_Procedure_&#40;Engineering&#41\">Department SOP</a></b>")
+		to_chat(H, "View the <a href=\"https://www.paradisestation.org/wiki/index.php/Guide_to_Engineering\"><b>Nanotrasen Engineering Manual</b></a>")
 	if(job.is_medical)
-		to_chat(H, "<b>As a member of Medbay, make sure to read up on your <a href=\"https://www.paradisestation.org/wiki/index.php/Standard_Operating_Procedure_&#40;Medical&#41\">Department SOP</a></b>")
+		to_chat(H, "View the <a href=\"https://paradisestation.org/wiki/index.php/Guide_to_Medical\"><b>Nanotrasen Medical Manual</b></a>")
 	if(job.is_science)
-		to_chat(H, "<b>If questions arise, consult the Nanotrasen <a href=\"https://paradisestation.org/wiki/index.php/Guide_to_Research_and_Development\">Research and Development Manual</a></b>")
+		to_chat(H, "View the <a href=\"https://paradisestation.org/wiki/index.php/Guide_to_Research_and_Development\"><b>Nanotrasen Research and Development Manual</b></a>")
 	if(job.is_security)
-		to_chat(H, "<b>As a member of Security, you are to know <a href=\"https://www.paradisestation.org/wiki/index.php/Space_law\">Space Law</a>, <a href=\"https://www.paradisestation.org/wiki/index.php/Legal_Standard_Operating_Procedure\">Legal Standard Operating Procedure</a>, as well as your <a href=\"https://www.paradisestation.org/wiki/index.php/Standard_Operating_Procedure_&#40;Security&#41\">Department SOP</a></b>")
+		to_chat(H, "View the <b>As a member of Security, you are to know <a href=\"https://www.paradisestation.org/wiki/index.php/Space_law\">Space Law</a>, <a href=\"https://www.paradisestation.org/wiki/index.php/Legal_Standard_Operating_Procedure\">Legal Standard Operating Procedure</a>, as well as your <a href=\"https://www.paradisestation.org/wiki/index.php/Standard_Operating_Procedure_&#40;Security&#41\">Department SOP</a></b>")
+
+	// [OBJECTIVES]
+	if(H.mind.job_objectives.len > 0)
+		to_chat(H, "<b>Objectives:</b>")
+		var/count = 1
+		for(var/datum/job_objective/task in H.mind.job_objectives)
+			to_chat(H, " > Task #[count]: [task.get_description()]")
+
+	to_chat(H, "----------------------------------------------------")
 
 	return H
+
 /datum/controller/subsystem/jobs/proc/EquipRank(mob/living/carbon/human/H, rank, joined_late = 0) // Equip and put them in an area
 	if(!H)
 		return null

@@ -8,7 +8,7 @@
 	per_unit = 1
 
 /datum/job_objective/cook_meth/get_description()
-	var/desc = "Synthesize meth."
+	var/desc = "Synthesize Meth."
 	if(completed)
 		desc += " <font color='green'><B>Completed!</B></font>"
 	return desc
@@ -20,7 +20,7 @@
 	per_unit = 1
 
 /datum/job_objective/cook_medicine/get_description()
-	var/desc = "Synthesize a Bottle of Oculine."
+	var/desc = "Synthesize Oculine."
 	if(completed)
 		desc += " <font color='green'><B>Completed!</B></font>"
 	return desc

@@ -133,8 +133,6 @@
 	var/output = "<B>[current.real_name]'s Memories:</B><HR>"
 	output += memory
 
-	for(recipient.mind.)
-
 	var/antag_datum_objectives = FALSE
 	for(var/datum/antagonist/A in antag_datums)
 		output += A.antag_memory
