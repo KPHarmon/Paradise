@@ -27,6 +27,7 @@
 	var/active = 0
 
 	var/memory
+	var/objectives_complete = 0
 
 	var/assigned_role //assigned role is what job you're assigned to when you join the station.
 	var/playtime_role //if set, overrides your assigned_role for the purpose of playtime awards. Set by IDcomputer when your ID is changed.
@@ -126,10 +127,13 @@
 	memory = null
 
 /datum/mind/proc/show_memory(mob/recipient, window = 1)
+
 	if(!recipient)
 		recipient = current
 	var/output = "<B>[current.real_name]'s Memories:</B><HR>"
 	output += memory
+
+	for(recipient.mind.)
 
 	var/antag_datum_objectives = FALSE
 	for(var/datum/antagonist/A in antag_datums)

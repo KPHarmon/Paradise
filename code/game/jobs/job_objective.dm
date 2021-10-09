@@ -9,6 +9,12 @@
 			job_objectives += task
 	return task
 
+/datum/mind/proc/check_all_objectives_complete()
+	for(var/datum/job_objective/task in job_objectives)
+		if(!task.completed)
+			return 0
+	return 1
+
 /datum/job_objective
 	var/datum/mind/owner = null			//Who owns the objective.
 	var/completed = 0					//currently only used for custom objectives.
@@ -59,7 +65,7 @@
 		var/count = 1
 		for(var/datum/job_objective/objective in employee.job_objectives)
 			if(objective.is_completed(1))
-				text += "<br>&nbsp;-&nbsp;<B>Task #[count]</B>: [objective.get_description()] <font color='green'><B>Completed!</B></font>"
+				text += "<br>&nbsp;-&nbsp;<B>Task #[count]</B>: [objective.get_description()]"
 				SSblackbox.record_feedback("nested tally", "employee_objective", 1, list("[objective.type]", "SUCCESS"))
 				tasks_completed++
 			else

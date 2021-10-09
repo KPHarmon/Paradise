@@ -170,6 +170,7 @@
 	required_reagents = list("atropine" = 1, "spaceacillin" = 1, "salglu_solution" = 1)
 	result_amount = 3
 	mix_message = "The mixture settles, becoming a milky white."
+	taskpath = /datum/job_objective/cook_medicine
 
 /datum/chemical_reaction/atropine
 	name = "Atropine"

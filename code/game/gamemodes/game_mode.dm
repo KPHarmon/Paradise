@@ -145,11 +145,14 @@
 						var/datum/data/pda/app/messenger/PM = P.find_program(/datum/data/pda/app/messenger)
 						PM.notify("<b>Message from NAS Trurl (Payroll), </b>\"[msg]\" (<i>Unable to Reply</i>)", 0)
 					break
+				if(M.mind.check_all_objectives_complete())
+					M.mind.objectives_complete = 1
 
 /datum/game_mode/proc/check_finished() //to be called by ticker
-	if((SSshuttle.emergency && SSshuttle.emergency.mode >= SHUTTLE_ENDGAME) || station_was_nuked)
-		return 1
-	return 0
+	for(var/mob/M in GLOB.player_list)
+		if(!M.mind.objectives_complete)
+			return 0
+	return 1
 
 /datum/game_mode/proc/cleanup()	//This is called when the round has ended but not the game, if any cleanup would be necessary in that case.
 	return
@@ -411,12 +414,7 @@
 //Announces objectives/generic antag text.
 /proc/show_generic_antag_text(datum/mind/player)
 	if(player.current)
-		to_chat(player.current, "You are an antagonist! <font color=blue>Within the rules,</font> \
-		try to act as an opposing force to the crew. Further RP and try to make sure \
-		other players have <i>fun</i>! If you are confused or at a loss, always adminhelp, \
-		and before taking extreme actions, please try to also contact the administration! \
-		Think through your actions and make the roleplay immersive! <b>Please remember all \
-		rules aside from those without explicit exceptions apply to antagonists.</b>")
+		to_chat(player.current, "<b>You are an antagonist!</b>")
 
 /proc/show_objectives(datum/mind/player)
 	if(!player || !player.current) return
@@ -523,7 +521,7 @@
 /datum/game_mode/proc/send_station_goals_message()
 	var/message_text = "<div style='text-align:center;'><img src='ntlogo.png'>"
 	message_text += "<h3>NAS Trurl Orders</h3></div><hr>"
-	message_text += "<b>Special Orders for [station_name()]:</b><br><br>"
+	message_text += "<b>Optional Orders for [station_name()]:</b><br><br>"
 
 	for(var/datum/station_goal/G in station_goals)
 		G.on_report()
