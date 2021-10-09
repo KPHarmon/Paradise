@@ -149,10 +149,28 @@
 					M.mind.objectives_complete = 1
 
 /datum/game_mode/proc/check_finished() //to be called by ticker
-	for(var/mob/M in GLOB.player_list)
-		if(!M.mind.objectives_complete)
-			return 0
-	return 1
+	if(check_crew() || check_traitor())
+		return 1
+	return 0
+
+/datum/game_mode/proc/check_crew()
+	// Ensure there are actually players
+	if(GLOB.player_list.len > 0)
+		for(var/mob/M in GLOB.player_list)
+			if(!M.mind.objectives_complete)
+				return 0
+		return 1
+	return 0
+
+/datum/game_mode/proc/check_traitor()
+	// Check to see if there are traitors
+	if(traitors.len > 0)
+		for(var/datum/mind/traitor in traitors)
+			for(var/datum/objective/objective in traitor.objectives)
+				if(!objective.check_completion())
+					return 0
+		return 1
+	return 0
 
 /datum/game_mode/proc/cleanup()	//This is called when the round has ended but not the game, if any cleanup would be necessary in that case.
 	return

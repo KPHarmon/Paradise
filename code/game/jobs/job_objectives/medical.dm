@@ -31,7 +31,7 @@
 	per_unit = 1
 
 /datum/job_objective/perform_surgery/get_description()
-	var/desc = "Perform a surgery."
+	var/desc = "Perform a Surgery."
 	if(completed)
 		desc += " <font color='green'><B>Completed!</B></font>"
 	return desc

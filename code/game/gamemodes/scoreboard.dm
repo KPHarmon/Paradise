@@ -240,32 +240,32 @@ GLOBAL_VAR(scoreboard) // Variable to save the scoreboard string once it's been 
 
 
 	// Generate the score panel
-	var/list/dat = list("<b>Round Statistics and Score</b><br><hr>")
+	var/list/dat = list("<font size='5'><b>Round Statistics and Score</b></font><br>")
 	if(SSticker.mode)
 		dat += SSticker.mode.get_scoreboard_stats()
 
-	dat += {"
+	if(SSticker.mode.check_crew())
+		dat += "<font size='4' color='green'><b>The Crew Won!</b></font>"
+	else
+		dat += "<font size='4' color='green'><b>The Traitor Won!</b></font>"
+
+	dat += {"<hr>
 	<b><u>General Statistics</u></b><br>
-	<u>The Good</u><br>
-	<b>Ore Mined:</b> [score_ore_mined] ([points_ore_mined] Points)<br>"}
-	if(score_escapees)
-		dat += "<b>Shuttle Escapees:</b> [score_escapees] ([points_escapees] Points)<br>"
-	dat += "<b>Whole Station Powered:</b> [power_bonus ? "Yes" : "No"] ([power_bonus * 2500] Points)<br>"
-	dat += "<b>Whole Station Cleaned:</b> [mess_bonus ? "Yes" : "No"] ([mess_bonus * 1500] Points)<br><br>"
+	<u>The Good</u><br>"}
+	dat += "<b>Whole Station Powered:</b> [power_bonus ? "Yes" : "No"] <br>"
+	dat += "<b>Whole Station Cleaned:</b> [mess_bonus ? "Yes" : "No"] <br><br>"
 
 	dat += "<U>The Bad</U><br>"
-	dat += "<b>Dead bodies on Station:</b> [score_dead_crew] (-[points_dead_crew] Points)<br>"
+	dat += "<b>Dead bodies on Station:</b> [score_dead_crew] <br>"
 	if(!mess_bonus)
-		dat += "<b>Uncleaned Messes:</b> [score_mess] (-[score_mess] Points)<br>"
+		dat += "<b>Uncleaned Messes:</b> [score_mess] <br>"
 	if(!power_bonus)
-		dat += "<b>Station Power Issues:</b> [score_power_loss] (-[points_power_loss] Points)<br>"
-	dat += {"
-	<b>AI Destroyed:</b> [dead_ai ? "Yes" : "No"] (-[dead_ai * 250] Points)<br><br>
+		dat += "<b>Station Power Issues:</b> [score_power_loss] <br>"
+	dat += {"<br>
 
 	<U>The Weird</U><br>
-	<b>Food Eaten:</b> [score_food_eaten] bites/sips.<br>
-	<b>Times a Clown was Abused:</b> [score_clown_abuse]<br><br>"}
-	if(score_escapees)
+	<b>Food Eaten:</b> [score_food_eaten] bites/sips.<br><br>"}
+/*	if(score_escapees)
 		dat += "<b>Richest Escapee:</b> [richest_name], [richest_job]: $[num2text(richest_cash, 50)] ([richest_key])<br>"
 		if(damaged_health)
 			dat += "<b>Most Battered Escapee:</b> [damaged_name], [damaged_job]: [damaged_health] damage ([damaged_key])<br>"
@@ -274,9 +274,10 @@ GLOBAL_VAR(scoreboard) // Variable to save the scoreboard string once it's been 
 			dat += "The station wasn't evacuated!<br>"
 		else
 			dat += "No-one escaped!<br>"
-
+*/
 	dat += SSticker.mode.declare_job_completion()
 
+/*
 	dat += {"
 	<hr><br>
 	<b><u>FINAL SCORE: [crewscore]</u></b><br>
@@ -300,13 +301,13 @@ GLOBAL_VAR(scoreboard) // Variable to save the scoreboard string once it's been 
 		if(PRIDE_OF_SCIENCE to NANOTRANSEN_FINEST-1) score_rating = 				"The Pride of Science Itself"
 		if(NANOTRANSEN_FINEST to INFINITY) score_rating = 							"Nanotrasen's Finest"
 
-	dat += "<b><u>RATING:</u></b> [score_rating]"
+	dat += "<b><u>RATING:</u></b> [score_rating]"*/
 	GLOB.scoreboard = jointext(dat, "")
 
 	for(var/mob/E in GLOB.player_list)
 		if(E.client)
-			to_chat(E, "<b>The crew's final score is:</b>")
-			to_chat(E, "<b><font size='4'><a href='?src=[E.UID()];scoreboard=1'>[crewscore]</a></font></b>")
+			//to_chat(E, "<b>The crew's final score is:</b>")
+			//to_chat(E, "<b><font size='4'><a href='?src=[E.UID()];scoreboard=1'>[crewscore]</a></font></b>")
 			if(!E.get_preference(PREFTOGGLE_DISABLE_SCOREBOARD))
 				E << browse(GLOB.scoreboard, "window=roundstats;size=500x600")
 
