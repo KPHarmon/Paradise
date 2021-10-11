@@ -39,8 +39,11 @@
 	sell()
 
 /obj/docking_port/mobile/supply/proc/buy()
-	if(!is_station_level(z))		//we only buy when we are -at- the station
+
+	if(!is_station_level(3))		//we only buy when we are -at- the station
+		to_chat(world, "Wrong Z-Level")
 		return 1
+
 
 	if(!SSshuttle.shoppinglist.len)
 		return 2
@@ -64,6 +67,9 @@
 		emptyTurfs += T
 
 	for(var/datum/supply_order/SO in SSshuttle.shoppinglist)
+		to_chat(world, "-----")
+		to_chat(world, "Crate: [SO.object.containername]")
+		to_chat(world, "Type: [SO.object.containertype]")
 		if(!SO.object)
 			throw EXCEPTION("Supply Order [SO] has no object associated with it.")
 			continue
@@ -293,18 +299,25 @@
 
 /datum/supply_order/proc/createObject(atom/_loc, errors=0)
 	if(!object)
+		to_chat(world, "createObject() is fucked")
 		return
 
 	//create the crate
 	var/atom/Crate = new object.containertype(_loc)
+	to_chat(world, "Crate: [Crate]\nLoc: [_loc]")
+
 	Crate.name = "[object.containername] [comment ? "([comment])":"" ]"
 	if(object.access)
+		to_chat(world, "object.access")
 		Crate:req_access = list(text2num(object.access))
+
+
 	if(object.taskpath != null)
 		for(var/mob/living/player in GLOB.player_list)
 			var/datum/job_objective/task = player.mind.findJobTask(object.taskpath)
 			if(istype(task))
 				task.unit_completed()
+				break
 
 	//create the manifest slip
 	var/obj/item/paper/manifest/slip = new /obj/item/paper/manifest()

@@ -43,7 +43,6 @@
 
 
 /datum/surgery/proc/complete(mob/living/carbon/human/target)
-	to_chat(world, "Surgery Complete")
 	for(var/mob/living/player in GLOB.player_list)
 		var/datum/job_objective/task = player.mind.findJobTask(/datum/job_objective/perform_surgery)
 		if(istype(task))

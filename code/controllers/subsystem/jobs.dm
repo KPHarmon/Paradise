@@ -458,6 +458,7 @@ SUBSYSTEM_DEF(jobs)
 		var/count = 1
 		for(var/datum/job_objective/task in H.mind.job_objectives)
 			to_chat(H, " > Task #[count]: [task.get_description()]")
+			count++
 
 	to_chat(H, "----------------------------------------------------")
 
