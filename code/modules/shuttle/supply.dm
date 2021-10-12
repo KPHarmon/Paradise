@@ -7,7 +7,7 @@
 /obj/docking_port/mobile/supply
 	name = "supply shuttle"
 	id = "supply"
-	callTime = 1200
+	callTime = 600
 
 	dir = 8
 	travelDir = 90
@@ -39,11 +39,11 @@
 	sell()
 
 /obj/docking_port/mobile/supply/proc/buy()
-
-	if(!is_station_level(3))		//we only buy when we are -at- the station
-		to_chat(world, "Wrong Z-Level")
+/*
+	if(is_station_level(STATION_LEVEL))		//we only buy when we are -at- the station
+		to_chat(world, "Z-Level: [z]")
 		return 1
-
+*/
 
 	if(!SSshuttle.shoppinglist.len)
 		return 2
@@ -304,7 +304,7 @@
 
 	//create the crate
 	var/atom/Crate = new object.containertype(_loc)
-	to_chat(world, "Crate: [Crate]\nLoc: [_loc]")
+	to_chat(world, "Crate: [Crate]\nContainer Type: [_loc]")
 
 	Crate.name = "[object.containername] [comment ? "([comment])":"" ]"
 	if(object.access)

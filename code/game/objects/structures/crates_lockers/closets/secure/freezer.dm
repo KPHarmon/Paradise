@@ -61,7 +61,7 @@
 	icon_off = "fridge1"
 
 /obj/structure/closet/secure_closet/freezer/meat/populate_contents()
-	for(var/i in 1 to 4)
+	for(var/i in 1 to 10)
 		new /obj/item/reagent_containers/food/snacks/meat/monkey(src)
 
 /obj/structure/closet/secure_closet/freezer/meat/open
