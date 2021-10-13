@@ -82,7 +82,7 @@
 
 	INVOKE_ASYNC(src, .proc/set_mode_in_db) // Async query, dont bother slowing roundstart
 
-	generate_station_goals()
+	//generate_station_goals()
 	GLOB.start_state = new /datum/station_state()
 	GLOB.start_state.count()
 	return 1
@@ -149,8 +149,9 @@
 					M.mind.objectives_complete = 1
 
 /datum/game_mode/proc/check_finished() //to be called by ticker
-	if(check_crew() || check_traitor())
-		return 1
+	if(name == "Traitors")
+		if(check_crew() || check_traitor())
+			return 1
 	return 0
 
 /datum/game_mode/proc/check_crew()
@@ -163,14 +164,15 @@
 	return 0
 
 /datum/game_mode/proc/check_traitor()
-	// Check to see if there are traitors
-	if(traitors.len > 0)
+	if(name == "Traitors")
 		for(var/datum/mind/traitor in traitors)
 			for(var/datum/objective/objective in traitor.objectives)
 				if(!objective.check_completion())
 					return 0
-		return 1
+			return 1
+
 	return 0
+
 
 /datum/game_mode/proc/cleanup()	//This is called when the round has ended but not the game, if any cleanup would be necessary in that case.
 	return

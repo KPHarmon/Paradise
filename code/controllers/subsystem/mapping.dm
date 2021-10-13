@@ -136,7 +136,6 @@ SUBSYSTEM_DEF(mapping)
 	log_startup_progress("Loading [map_datum.fluff_name]...")
 	// This should always be Z2, but you never know
 	var/map_z_level = GLOB.space_manager.add_new_zlevel(MAIN_STATION, linkage = CROSSLINKED, traits = list(STATION_LEVEL, STATION_CONTACT, REACHABLE, AI_OK))
-	log_startup_progress("--> Map Z-Level: [map_z_level]")
 	GLOB.maploader.load_map(file(map_datum.map_path), z_offset = map_z_level)
 	log_startup_progress("Loaded [map_datum.fluff_name] in [stop_watch(watch)]s")
 

@@ -104,8 +104,8 @@
 
 
 /datum/antagonist/traitor/proc/forge_human_objectives()
-	var/is_hijacker = prob(10)
-	var/martyr_chance = prob(20)
+	var/is_hijacker = prob(0)
+	var/martyr_chance = prob(0)
 	var/objective_count = is_hijacker 			//Hijacking counts towards number of objectives
 	if(!SSticker.mode.exchange_blue && SSticker.mode.traitors.len >= 8) 	//Set up an exchange if there are enough traitors
 		if(!SSticker.mode.exchange_red)
@@ -180,48 +180,48 @@
 
 /datum/antagonist/traitor/proc/forge_single_human_objective() // Returns how many objectives are added
 	. = 1
-	if(prob(50))
-		var/list/active_ais = active_ais()
-		if(active_ais.len && prob(100/GLOB.player_list.len))
-			var/datum/objective/destroy/destroy_objective = new
-			destroy_objective.owner = owner
-			destroy_objective.find_target()
-			if("[destroy_objective]" in assigned_targets)	        // Is this target already in their list of assigned targets? If so, don't add this objective and return
-				return 0
-			else if(destroy_objective.target)					    // Is the target a real one and not null? If so, add it to our list of targets to avoid duplicate targets
-				assigned_targets.Add("[destroy_objective.target]")	// This logic is applied to all traitor objectives including steal objectives
-			add_objective(destroy_objective)
+	var/list/active_ais = active_ais()
+	if(active_ais.len && prob(100/GLOB.player_list.len))
+		var/datum/objective/destroy/destroy_objective = new
+		destroy_objective.owner = owner
+		destroy_objective.find_target()
+		if("[destroy_objective]" in assigned_targets)	        // Is this target already in their list of assigned targets? If so, don't add this objective and return
+			return 0
+		else if(destroy_objective.target)					    // Is the target a real one and not null? If so, add it to our list of targets to avoid duplicate targets
+			assigned_targets.Add("[destroy_objective.target]")	// This logic is applied to all traitor objectives including steal objectives
+		add_objective(destroy_objective)
 
-		else if(prob(5))
-			var/datum/objective/debrain/debrain_objective = new
-			debrain_objective.owner = owner
-			debrain_objective.find_target()
-			if("[debrain_objective]" in assigned_targets)
-				return 0
-			else if(debrain_objective.target)
-				assigned_targets.Add("[debrain_objective.target]")
-			add_objective(debrain_objective)
+	else if(prob(20))
+		var/datum/objective/debrain/debrain_objective = new
+		debrain_objective.owner = owner
+		debrain_objective.find_target()
+		if("[debrain_objective]" in assigned_targets)
+			return 0
+		else if(debrain_objective.target)
+			assigned_targets.Add("[debrain_objective.target]")
+		add_objective(debrain_objective)
 
-		else if(prob(30))
-			var/datum/objective/maroon/maroon_objective = new
-			maroon_objective.owner = owner
-			maroon_objective.find_target()
-			if("[maroon_objective]" in assigned_targets)
-				return 0
-			else if(maroon_objective.target)
-				assigned_targets.Add("[maroon_objective.target]")
-			add_objective(maroon_objective)
+	else if(prob(0))
+		var/datum/objective/maroon/maroon_objective = new
+		maroon_objective.owner = owner
+		maroon_objective.find_target()
+		if("[maroon_objective]" in assigned_targets)
+			return 0
+		else if(maroon_objective.target)
+			assigned_targets.Add("[maroon_objective.target]")
+		add_objective(maroon_objective)
 
-		else
-			var/datum/objective/assassinate/kill_objective = new
-			kill_objective.owner = owner
-			kill_objective.find_target()
-			if("[kill_objective.target]" in assigned_targets)
-				return 0
-			else if(kill_objective.target)
-				assigned_targets.Add("[kill_objective.target]")
-			add_objective(kill_objective)
+	else
+		var/datum/objective/assassinate/kill_objective = new
+		kill_objective.owner = owner
+		kill_objective.find_target()
+		if("[kill_objective.target]" in assigned_targets)
+			return 0
+		else if(kill_objective.target)
+			assigned_targets.Add("[kill_objective.target]")
+		add_objective(kill_objective)
 
+/*	[No Stealing]
 	else
 		var/datum/objective/steal/steal_objective = new
 		steal_objective.owner = owner
@@ -231,7 +231,7 @@
 		else if(steal_objective.steal_target)
 			assigned_targets.Add("[steal_objective.steal_target]")
 		add_objective(steal_objective)
-
+*/
 
 /datum/antagonist/traitor/proc/forge_single_AI_objective()
 	. = 1
