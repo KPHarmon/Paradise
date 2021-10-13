@@ -67,9 +67,6 @@
 		emptyTurfs += T
 
 	for(var/datum/supply_order/SO in SSshuttle.shoppinglist)
-		to_chat(world, "-----")
-		to_chat(world, "Crate: [SO.object.containername]")
-		to_chat(world, "Type: [SO.object.containertype]")
 		if(!SO.object)
 			throw EXCEPTION("Supply Order [SO] has no object associated with it.")
 			continue
@@ -304,7 +301,6 @@
 
 	//create the crate
 	var/atom/Crate = new object.containertype(_loc)
-	to_chat(world, "Crate: [Crate]\nContainer Type: [_loc]")
 
 	Crate.name = "[object.containername] [comment ? "([comment])":"" ]"
 	if(object.access)

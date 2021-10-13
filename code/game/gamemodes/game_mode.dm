@@ -165,11 +165,13 @@
 /datum/game_mode/proc/check_traitor()
 	if(name == "Traitors")
 		for(var/datum/mind/traitor in traitors)
-			for(var/datum/objective/objective in traitor.objectives)
-				if(!objective.check_completion())
-					return 0
-			return 1
-
+			if(traitor.current.stat == DEAD)
+				return 1
+			else
+				for(var/datum/objective/objective in traitor.objectives)
+					if(!objective.check_completion())
+						return 0
+				return 1
 	return 0
 
 

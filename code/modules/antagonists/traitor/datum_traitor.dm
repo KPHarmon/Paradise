@@ -105,7 +105,7 @@
 
 /datum/antagonist/traitor/proc/forge_human_objectives()
 	var/is_hijacker = prob(0)
-	var/martyr_chance = prob(0)
+	// var/martyr_chance = prob(0)
 	var/objective_count = is_hijacker 			//Hijacking counts towards number of objectives
 	if(!SSticker.mode.exchange_blue && SSticker.mode.traitors.len >= 8) 	//Set up an exchange if there are enough traitors
 		if(!SSticker.mode.exchange_red)
@@ -129,6 +129,7 @@
 	for(var/i = objective_count, i < objective_amount)
 		i += forge_single_objective()
 
+/* [No Escape Objectives]
 	var/martyr_compatibility = 1 //You can't succeed in stealing if you're dead.
 	for(var/datum/objective/O in owner.objectives)
 		if(!O.martyr_compatible)
@@ -146,7 +147,7 @@
 		escape_objective.owner = owner
 		add_objective(escape_objective)
 		return
-
+*/
 
 /datum/antagonist/traitor/proc/forge_ai_objectives()
 	var/objective_count = 0
@@ -181,7 +182,7 @@
 /datum/antagonist/traitor/proc/forge_single_human_objective() // Returns how many objectives are added
 	. = 1
 	var/list/active_ais = active_ais()
-	if(prob(50))
+	if(prob(80))
 		if(active_ais.len && prob(100/GLOB.player_list.len))
 			var/datum/objective/destroy/destroy_objective = new
 			destroy_objective.owner = owner
