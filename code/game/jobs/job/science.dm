@@ -40,9 +40,7 @@
 	id = /obj/item/card/id/rd
 	l_hand = /obj/item/clipboard
 	pda = /obj/item/pda/heads/rd
-	backpack_contents = list(
-		/obj/item/melee/classic_baton/telescopic = 1
-	)
+	backpack_contents = list()
 
 	backpack = /obj/item/storage/backpack/science
 	satchel = /obj/item/storage/backpack/satchel_tox

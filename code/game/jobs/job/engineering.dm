@@ -33,7 +33,7 @@
 	jobtype = /datum/job/chief_engineer
 
 	uniform = /obj/item/clothing/under/rank/chief_engineer
-	belt = /obj/item/storage/belt/utility/chief/full
+	belt = /obj/item/storage/belt/utility/full
 	gloves = /obj/item/clothing/gloves/color/black/ce
 	shoes = /obj/item/clothing/shoes/brown
 	head = /obj/item/clothing/head/hardhat/white
@@ -41,9 +41,7 @@
 	id = /obj/item/card/id/ce
 	l_pocket = /obj/item/t_scanner
 	pda = /obj/item/pda/heads/ce
-	backpack_contents = list(
-		/obj/item/melee/classic_baton/telescopic = 1
-	)
+	backpack_contents = list()
 
 	backpack = /obj/item/storage/backpack/industrial
 	satchel = /obj/item/storage/backpack/satchel_eng

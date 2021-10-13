@@ -7,7 +7,7 @@
 	is_medical = 1
 	supervisors = "the captain"
 	department_head = list("Captain")
-	selection_color = "#ffddf0"
+	selection_color = "#459be0"
 	req_admin_notify = 1
 	access = list(ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_GENETICS, ACCESS_HEADS,
 			ACCESS_CHEMISTRY, ACCESS_VIROLOGY, ACCESS_CMO, ACCESS_SURGERY, ACCESS_RC_ANNOUNCE,
@@ -38,9 +38,7 @@
 	suit_store = /obj/item/flashlight/pen
 	l_hand = /obj/item/storage/firstaid/doctor
 	pda = /obj/item/pda/heads/cmo
-	backpack_contents = list(
-		/obj/item/melee/classic_baton/telescopic = 1
-	)
+	backpack_contents = list()
 
 	backpack = /obj/item/storage/backpack/medic
 	satchel = /obj/item/storage/backpack/satchel_med

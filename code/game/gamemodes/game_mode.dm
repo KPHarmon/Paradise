@@ -149,9 +149,8 @@
 					M.mind.objectives_complete = 1
 
 /datum/game_mode/proc/check_finished() //to be called by ticker
-	if(name == "Traitors")
-		if(check_crew() || check_traitor())
-			return 1
+	if(check_crew() || check_traitor())
+		return 1
 	return 0
 
 /datum/game_mode/proc/check_crew()

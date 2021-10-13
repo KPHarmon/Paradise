@@ -35,6 +35,7 @@
 
 	// stop setup if no possible traitors
 	if(!possible_traitors.len)
+		to_chat(world, "No possible traitors")
 		return 0
 
 	var/num_traitors = 1
@@ -54,6 +55,7 @@
 		possible_traitors.Remove(traitor)
 
 	if(!pre_traitors.len)
+		to_chat(world, "Setup Error: pre_traitor.len")
 		return 0
 	return 1
 
