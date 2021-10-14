@@ -40,10 +40,12 @@
 
 	var/num_traitors = 1
 
+	/* always 1 traitor
 	if(GLOB.configuration.gamemode.traitor_scaling)
 		num_traitors = max(1, round((num_players())/(traitor_scaling_coeff)))
 	else
 		num_traitors = max(1, min(num_players(), traitors_possible))
+	*/
 
 	for(var/j = 0, j < num_traitors, j++)
 		if(!possible_traitors.len)
@@ -74,11 +76,17 @@
 	return//Traitors will be checked as part of check_extra_completion. Leaving this here as a reminder.
 
 /datum/game_mode/traitor/process()
+	var/flag = 0
+
 	// Make sure all objectives are processed regularly, so that objectives
 	// which can be checked mid-round are checked mid-round.
 	for(var/datum/mind/traitor_mind in traitors)
 		for(var/datum/objective/objective in traitor_mind.objectives)
-			objective.check_completion()
+			if(!objective.check_completion())
+				flag = 1
+				break
+	if(flag == 0)
+		antag_win = 1
 	return 0
 
 

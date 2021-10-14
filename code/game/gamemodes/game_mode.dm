@@ -36,6 +36,7 @@
 	var/ert_disabled = 0
 	var/uplink_welcome = "Syndicate Uplink Console:"
 	var/uplink_uses = 20
+	var/antag_win = 0
 
 	var/const/waittime_l = 600  //lower bound on time before intercept arrives (in tenths of seconds)
 	var/const/waittime_h = 1800 //upper bound on time before intercept arrives (in tenths of seconds)
@@ -149,7 +150,7 @@
 					M.mind.objectives_complete = 1
 
 /datum/game_mode/proc/check_finished() //to be called by ticker
-	if(check_crew() || check_traitor())
+	if(check_crew() || check_antag())
 		return 1
 	return 0
 
@@ -162,16 +163,9 @@
 		return 1
 	return 0
 
-/datum/game_mode/proc/check_traitor()
-	if(name == "Traitors")
-		for(var/datum/mind/traitor in traitors)
-			if(traitor.current.stat == DEAD)
-				return 1
-			else
-				for(var/datum/objective/objective in traitor.objectives)
-					if(!objective.check_completion())
-						return 0
-				return 1
+/datum/game_mode/proc/check_antag()
+	if(antag_win)
+		return 1
 	return 0
 
 
