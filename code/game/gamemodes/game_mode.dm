@@ -164,29 +164,23 @@
 /datum/game_mode/proc/check_crew()
 	// Ensure there are actually players
 	if(GLOB.player_list.len > 0)
-		for(var/mob/M in GLOB.player_list)
-			// Living?
-			if(M.stat)
-				// Antag?
-				if(!(M.mind in traitors))
-					// Objectives?
-					if(!M.mind.objectives_complete)
-						return 0
-		return 1
-	return 0
+		for(var/mob/living/M in GLOB.player_list)
 
-
-/////////////////////////////////////////
-/////////////////////////////////////////
-/////////////////////////////////////////
-/////////////////////////////////////////
-/////////////////////////////////////////
-
+			// Objectives?
+			if(!M.mind.objectives_complete)
+				return 0
+	return 1
 
 /datum/game_mode/proc/check_antag()
-	if(antag_win)
+	if(antag_win && ROUND_TIME > 100)
 		return 1
 	return 0
+
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
 
 
 /datum/game_mode/proc/cleanup()	//This is called when the round has ended but not the game, if any cleanup would be necessary in that case.
