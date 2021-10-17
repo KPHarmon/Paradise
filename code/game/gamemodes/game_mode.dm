@@ -167,8 +167,9 @@
 		for(var/mob/living/M in GLOB.player_list)
 
 			// Objectives?
-			if(!M.mind.objectives_complete)
-				return 0
+			if(M.mind.job_objectives.len > 0)
+				if(!M.mind.objectives_complete)
+					return 0
 	return 1
 
 /datum/game_mode/proc/check_antag()

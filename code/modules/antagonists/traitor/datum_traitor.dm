@@ -243,6 +243,7 @@
 
 /datum/antagonist/traitor/greet()
 	to_chat(owner.current, "<B><font size=3 color=red>You are a [owner.special_role]!</font></B>")
+	to_chat(owner.current, "<span>Open your notes to accept your duties.</span>")
 	if(!LAZYLEN(owner.objectives))   // Remove "owner" when objectives are handled in the datum
 		to_chat(owner.current, "<span>You don't have any objectives right now.</span>")
 	else

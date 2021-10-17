@@ -142,6 +142,8 @@
 	if(LAZYLEN(objectives) || antag_datum_objectives)
 		output += "<HR><B>Objectives:</B><BR>"
 		output += gen_objective_text()
+		// REMOVE JOB OBJECTIVES
+		job_objectives = list()
 
 	if(LAZYLEN(job_objectives))
 		output += "<HR><B>Job Objectives:</B><UL>"
