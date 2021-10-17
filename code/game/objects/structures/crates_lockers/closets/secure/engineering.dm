@@ -11,8 +11,6 @@
 /obj/structure/closet/secure_closet/engineering_chief/populate_contents()
 
 	new /obj/item/areaeditor/blueprints/ce(src)
-	new /obj/item/storage/box/permits(src)
-	new /obj/item/clothing/suit/mantle/chief_engineer(src)
 	new /obj/item/clothing/head/hardhat/white(src)
 	new /obj/item/clothing/glasses/welding/superior(src)
 	new /obj/item/tank/jetpack/suit(src)
@@ -23,8 +21,8 @@
 	new /obj/item/flash(src)
 	new /obj/item/clothing/glasses/meson/engine(src)
 	new /obj/item/rpd(src)
-	new /obj/item/organ/internal/eyes/cybernetic/meson(src)
 	new /obj/item/clothing/accessory/medal/engineering(src)
+	new /obj/item/clothing/gloves/color/yellow/power(src)
 	new /obj/item/holosign_creator/atmos(src)
 
 

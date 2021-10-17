@@ -106,7 +106,7 @@
 
 		// [OBJECTIVES]
 		if(power_objective_complete == FALSE)
-			if(powernet.viewload*2 <= powernet.viewavail)
+			if(powernet.avail >= 300000)
 				for(var/mob/living/player in GLOB.player_list)
 					var/datum/job_objective/task = player.mind.findJobTask(/datum/job_objective/more_power)
 					if(istype(task))

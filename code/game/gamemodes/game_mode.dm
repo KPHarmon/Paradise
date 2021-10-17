@@ -149,6 +149,13 @@
 				if(M.mind.check_all_objectives_complete())
 					M.mind.objectives_complete = 1
 
+
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+
 /datum/game_mode/proc/check_finished() //to be called by ticker
 	if(check_crew() || check_antag())
 		return 1
@@ -158,17 +165,27 @@
 	// Ensure there are actually players
 	if(GLOB.player_list.len > 0)
 		for(var/mob/M in GLOB.player_list)
-			if(!M.mind.objectives_complete)
-				return 0
-		to_chat(world, "crew win")
+			// Living?
+			if(M.stat)
+				// Antag?
+				if(!(M.mind in traitors))
+					// Objectives?
+					if(!M.mind.objectives_complete)
+						return 0
 		return 1
 	return 0
 
+
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+
+
 /datum/game_mode/proc/check_antag()
-	if(traitors.len > 0)
-		if(antag_win)
-			to_chat(world, "antag win")
-			return 1
+	if(antag_win)
+		return 1
 	return 0
 
 
