@@ -31,11 +31,13 @@
 /datum/proc/check_special_completion() //for objectives with special checks (is that slime extract unused? does that intellicard have an ai in it? etcetc)
 	return 1
 
+/*
 /datum/theft_objective/antique_laser_gun
 	name = "the captain's antique laser gun"
 	typepath = /obj/item/gun/energy/laser/captain
 	protected_jobs = list("Captain")
 	location_override = "the Captain's Office"
+*/
 
 /datum/theft_objective/captains_jetpack
 	name = "the captain's deluxe jetpack"
@@ -49,6 +51,7 @@
 	protected_jobs = list("Captain")
 	location_override = "the Captain's Office"
 
+/*
 /datum/theft_objective/hoslaser
 	name = "the head of security's X-01 multiphase energy gun"
 	typepath = /obj/item/gun/energy/gun/hos
@@ -65,6 +68,7 @@
 	name = "a functional AI"
 	typepath = /obj/item/aicard
 	location_override = "AI Satellite. An intellicard for transportation can be found in Tech Storage, Science Department or manufactured"
+*/
 
 /datum/theft_objective/ai/check_special_completion(obj/item/aicard/C)
 	if(..())
@@ -106,13 +110,13 @@
 	typepath = /obj/item/clothing/accessory/medal/gold/captain
 	protected_jobs = list("Captain")
 	location_override = "the Captain's Office"
-
+/*
 /datum/theft_objective/nukedisc
 	name = "the nuclear authentication disk"
 	typepath = /obj/item/disk/nuclear
 	protected_jobs = list("Captain")
 	location_override = "the Captain's Office"
-
+*/
 /datum/theft_objective/reactive
 	name = "the reactive teleport armor"
 	typepath = /obj/item/clothing/suit/armor/reactive/teleport
@@ -130,6 +134,7 @@
 	protected_jobs = list("Chief Medical Officer")
 	location_override = "the Chief Medical Officer's Office"
 
+/*
 /datum/theft_objective/ablative
 	name = "an ablative armor vest"
 	typepath = /obj/item/clothing/suit/armor/laserproof
@@ -155,7 +160,7 @@
 	typepath = /obj/item/nuke_core/plutonium
 	location_override = "the Vault. You can use the box and instructions provided to remove the core, with some extra tools"
 	special_equipment = /obj/item/storage/box/syndie_kit/nuke
-
+*/
 /datum/theft_objective/number
 	var/min=0
 	var/max=0
