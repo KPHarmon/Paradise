@@ -13,7 +13,6 @@
 		new /obj/item/storage/backpack/captain(src)
 	else
 		new /obj/item/storage/backpack/satchel_cap(src)
-	new /obj/item/book/manual/faxes(src)
 	new /obj/item/storage/backpack/duffel/captain(src)
 	new /obj/item/clothing/suit/captunic(src)
 	new /obj/item/clothing/suit/captunic/capjacket(src)
@@ -23,16 +22,11 @@
 	new /obj/item/clothing/under/rank/captain(src)
 	new /obj/item/clothing/under/dress/dress_cap(src)
 	new /obj/item/clothing/suit/armor/vest/capcarapace/alt(src)
-	new /obj/item/cartridge/captain(src)
-	new /obj/item/clothing/shoes/brown(src)
-	new /obj/item/clothing/shoes/laceup(src)
-	new /obj/item/radio/headset/heads/captain/alt(src)
-	new /obj/item/clothing/glasses/sunglasses(src)
 	new /obj/item/clothing/gloves/color/captain(src)
+	new /obj/item/clothing/accessory/medal/gold/captain(src)
 	new /obj/item/storage/belt/rapier(src)
 	new /obj/item/gun/energy/gun(src)
 	new /obj/item/door_remote/captain(src)
-	new /obj/item/reagent_containers/food/drinks/mug/cap(src)
 	new /obj/item/tank/internals/emergency_oxygen/double(src)
 
 
