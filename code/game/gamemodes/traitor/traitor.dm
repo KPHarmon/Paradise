@@ -76,16 +76,16 @@
 	return//Traitors will be checked as part of check_extra_completion. Leaving this here as a reminder.
 
 /datum/game_mode/traitor/process()
-	var/flag = 1
+	var/flag = 0
 
 	// Make sure all objectives are processed regularly, so that objectives
 	// which can be checked mid-round are checked mid-round.
 	for(var/datum/mind/traitor_mind in traitors)
 		for(var/datum/objective/objective in traitor_mind.objectives)
 			if(!objective.check_completion())
-				flag = 0
+				flag = 1
 				break
-	if(flag == 0)
+	if(flag == 1)
 		antag_win = 0
 	else
 		antag_win = 1

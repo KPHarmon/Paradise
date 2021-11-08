@@ -164,16 +164,22 @@
 /datum/game_mode/proc/check_crew()
 	// Ensure there are actually players
 	if(GLOB.player_list.len > 0)
+
+		// For each player
 		for(var/mob/living/M in GLOB.player_list)
 
-			// Objectives?
+			// Check that there are objectives
 			if(M.mind.job_objectives.len > 0)
+
+				// If an objective is not complete, return 0
 				if(!M.mind.objectives_complete)
 					return 0
+	to_world(world, "Crew Win")
 	return 1
 
 /datum/game_mode/proc/check_antag()
-	if(antag_win && ROUND_TIME > 100)
+	if(traitors.len && ROUND_TIME > 100)
+		to_chat(world, "Antag Win")
 		return 1
 	return 0
 
