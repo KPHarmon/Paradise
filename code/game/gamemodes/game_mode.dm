@@ -174,11 +174,11 @@
 				// If an objective is not complete, return 0
 				if(!M.mind.objectives_complete)
 					return 0
-	to_world(world, "Crew Win")
+	to_chat(world, "Crew Win")
 	return 1
 
 /datum/game_mode/proc/check_antag()
-	if(traitors.len && ROUND_TIME > 100)
+	if(traitors.len && ROUND_TIME > 200 && antag_win)
 		to_chat(world, "Antag Win")
 		return 1
 	return 0
