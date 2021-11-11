@@ -15,7 +15,7 @@
 
 /datum/job_objective/maximize_research/check_for_completion()
 	for(var/tech in SSshuttle.techLevels)
-		if(SSshuttle.techLevels[tech] == 5)
+		if(SSshuttle.techLevels[tech] > 4)
 			return 1
 	return 0
 
