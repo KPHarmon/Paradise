@@ -168,18 +168,20 @@
 		// For each player
 		for(var/mob/living/M in GLOB.player_list)
 
-			// Check that there are objectives
-			if(M.mind.job_objectives.len > 0)
+			// Check to see if mob is alive
+			if(M.stat != DEAD && M.mind)
 
-				// If an objective is not complete, return 0
-				if(!M.mind.objectives_complete)
-					return 0
-	to_chat(world, "Crew Win")
+				// Check that there are objectives
+				if(M.mind.job_objectives.len > 0)
+
+					// If an objective is not complete, return 0
+					if(!M.mind.objectives_complete)
+						return 0
+
 	return 1
 
 /datum/game_mode/proc/check_antag()
 	if(traitors.len && ROUND_TIME > 200 && antag_win)
-		to_chat(world, "Antag Win")
 		return 1
 	return 0
 
