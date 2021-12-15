@@ -157,7 +157,7 @@
 /////////////////////////////////////////
 
 /datum/game_mode/proc/check_finished() //to be called by ticker
-	if(check_crew() || check_antag())
+	if(check_crew() || check_vampires())
 		return 1
 	return 0
 
@@ -180,10 +180,6 @@
 
 	return 1
 
-/datum/game_mode/proc/check_antag()
-	if(traitors.len && ROUND_TIME > 200 && antag_win)
-		return 1
-	return 0
 
 /////////////////////////////////////////
 /////////////////////////////////////////

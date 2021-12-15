@@ -10,7 +10,7 @@
 	config_tag = "vampire"
 	restricted_jobs = list("AI", "Cyborg")
 	protected_jobs = list("Security Officer", "Warden", "Detective", "Head of Security", "Captain", "Blueshield", "Nanotrasen Representative", "Magistrate", "Chaplain", "Brig Physician", "Internal Affairs Agent", "Nanotrasen Navy Officer", "Special Operations Officer", "Syndicate Officer", "Solar Federation General")
-	protected_species = list("Machine")
+	protected_species = list()
 	required_players = 15
 	required_enemies = 1
 	recommended_enemies = 4
@@ -70,7 +70,23 @@
 		forge_vampire_objectives(vampire)
 		greet_vampire(vampire)
 		update_vampire_icons_added(vampire)
+		clear_crew_objectives(vampire)
 	..()
+
+/datum/game_mode/proc/check_vampires()
+	if(vampires.len)
+		for(var/datum/mind/vampire in vampires)
+			if(vampire.objectives.len)
+				var/completed_objectives = 0
+				for(var/datum/objective/objective in vampire.objectives)
+					if(objective.check_completion())
+						completed_objectives += 1
+				if(completed_objectives == vampire.objectives.len)
+					return 1
+	return 0
+
+/datum/game_mode/proc/clear_crew_objectives()
+	vampire.job_objectives = list()
 
 /datum/game_mode/proc/auto_declare_completion_vampire()
 	if(vampires.len)
@@ -140,7 +156,7 @@
 
 	var/datum/objective/blood/blood_objective = new
 	blood_objective.owner = vampire
-	blood_objective.gen_amount_goal(150, 400)
+	blood_objective.gen_amount_goal(150, 250)
 	vampire.objectives += blood_objective
 
 	var/datum/objective/assassinate/kill_objective = new
@@ -153,18 +169,6 @@
 	steal_objective.find_target()
 	vampire.objectives += steal_objective
 
-
-	switch(rand(1,100))
-		if(1 to 80)
-			if(!(locate(/datum/objective/escape) in vampire.objectives))
-				var/datum/objective/escape/escape_objective = new
-				escape_objective.owner = vampire
-				vampire.objectives += escape_objective
-		else
-			if(!(locate(/datum/objective/survive) in vampire.objectives))
-				var/datum/objective/survive/survive_objective = new
-				survive_objective.owner = vampire
-				vampire.objectives += survive_objective
 	return
 
 /datum/game_mode/proc/grant_vampire_powers(mob/living/carbon/vampire_mob)
