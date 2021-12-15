@@ -75,7 +75,7 @@
 #define REAGENTS_EFFECT_MULTIPLIER REAGENTS_METABOLISM / 0.4
 
 // Factor of how fast mob nutrition decreases
-#define	HUNGER_FACTOR 0.35
+#define	HUNGER_FACTOR 0.25
 
 // Taste sensitivity - lower is more sensitive
 // Represents the minimum portion of total taste the mob can sense
