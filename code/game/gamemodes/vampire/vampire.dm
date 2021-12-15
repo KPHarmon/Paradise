@@ -70,7 +70,7 @@
 		forge_vampire_objectives(vampire)
 		greet_vampire(vampire)
 		update_vampire_icons_added(vampire)
-		clear_crew_objectives(vampire)
+		vampire.job_objectives = list()
 	..()
 
 /datum/game_mode/proc/check_vampires()
@@ -84,9 +84,6 @@
 				if(completed_objectives == vampire.objectives.len)
 					return 1
 	return 0
-
-/datum/game_mode/proc/clear_crew_objectives()
-	vampire.job_objectives = list()
 
 /datum/game_mode/proc/auto_declare_completion_vampire()
 	if(vampires.len)
