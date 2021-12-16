@@ -81,7 +81,8 @@
 				for(var/datum/objective/objective in vampire.objectives)
 					if(objective.check_completion())
 						completed_objectives += 1
-				if(completed_objectives == vampire.objectives.len)
+				if(completed_objectives == vampire.objectives.len && ROUND_TIME > 100)
+					to_chat(world, "vamp win")
 					return 1
 	return 0
 
