@@ -39,11 +39,13 @@
 	sell()
 
 /obj/docking_port/mobile/supply/proc/buy()
-/*
+
 	if(is_station_level(STATION_LEVEL))		//we only buy when we are -at- the station
 		to_chat(world, "Z-Level: [z]")
+		to_chat(world, "Station Level: [STATION_LEVEL]")
+		to_chat(world, "is_station_level: [is_station_level(STATION_LEVEL)]")
 		return 1
-*/
+
 
 	if(!SSshuttle.shoppinglist.len)
 		return 2
