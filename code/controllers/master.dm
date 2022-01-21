@@ -205,6 +205,7 @@ GLOBAL_REAL(Master, /datum/controller/master) = new
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 
 	log_startup_progress("Initializations complete within [time] second[time == 1 ? "" : "s"]!")
+	log_startup_progress("How on God's green Earth did this shit compile")
 
 	if(GLOB.configuration.general.developer_express_start)
 		SSticker.force_start = TRUE
