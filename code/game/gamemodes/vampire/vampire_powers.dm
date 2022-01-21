@@ -170,10 +170,10 @@
 				sleep(35)
 
 /obj/effect/proc_holder/spell/vampire/targetted/hypnotise
-	name = "Hypnotise (20)"
+	name = "Hypnotise (10)"
 	desc= "A piercing stare that incapacitates your victim for a good length of time."
 	action_icon_state = "vampire_hypnotise"
-	required_blood = 20
+	required_blood = 10
 
 /obj/effect/proc_holder/spell/vampire/targetted/hypnotise/cast(list/targets, mob/user = usr)
 	for(var/mob/living/target in targets)
@@ -193,11 +193,11 @@
 			to_chat(usr, "<span class='warning'>You broke your gaze.</span>")
 
 /obj/effect/proc_holder/spell/vampire/targetted/disease
-	name = "Diseased Touch (100)"
+	name = "Diseased Touch (50)"
 	desc = "Touches your victim with infected blood giving them Grave Fever, which will, left untreated, causes toxic building and frequent collapsing."
 	gain_desc = "You have gained the Diseased Touch ability which causes those you touch to become weak unless treated medically."
 	action_icon_state = "vampire_disease"
-	required_blood = 100
+	required_blood = 50
 
 /obj/effect/proc_holder/spell/vampire/targetted/disease/cast(list/targets, mob/user = usr)
 	for(var/mob/living/carbon/target in targets)
@@ -235,11 +235,11 @@
 		add_attack_logs(user, target, "(Vampire) Glared at")
 
 /obj/effect/proc_holder/spell/vampire/self/shapeshift
-	name = "Shapeshift (50)"
+	name = "Shapeshift (25)"
 	desc = "Changes your name and appearance at the cost of 50 blood and has a cooldown of 3 minutes."
 	gain_desc = "You have gained the shapeshifting ability, at the cost of stored blood you can change your form permanently."
 	action_icon_state = "genetic_poly"
-	required_blood = 50
+	required_blood = 25
 
 /obj/effect/proc_holder/spell/vampire/self/shapeshift/cast(list/targets, mob/user = usr)
 	user.visible_message("<span class='warning'>[user] transforms!</span>")
@@ -288,11 +288,11 @@
 	return istype(M) && M.mind && SSticker && SSticker.mode && (M.mind in SSticker.mode.vampire_enthralled)
 
 /obj/effect/proc_holder/spell/vampire/targetted/enthrall
-	name = "Enthrall (300)"
+	name = "Enthrall (250)"
 	desc = "You use a large portion of your power to sway those loyal to none to be loyal to you only."
 	gain_desc = "You have gained the Enthrall ability which at a heavy blood cost allows you to enslave a human that is not loyal to any other for a random period of time."
 	action_icon_state = "vampire_enthrall"
-	required_blood = 300
+	required_blood = 250
 	deduct_blood_on_cast = FALSE
 
 /obj/effect/proc_holder/spell/vampire/targetted/enthrall/cast(list/targets, mob/user = usr)
@@ -400,7 +400,7 @@
 	gain_desc = "You have gained the Summon Bats ability."
 	action_icon_state = "vampire_bats"
 	charge_max = 1200
-	required_blood = 75
+	required_blood = 60
 	var/num_bats = 2
 
 /obj/effect/proc_holder/spell/vampire/bats/choose_targets(mob/user = usr)
@@ -428,7 +428,7 @@
 	gain_desc = "You have gained the Mist Form ability which allows you to take on the form of mist for a short period and pass over any obstacle in your path."
 	action_icon_state = "mist"
 	charge_max = 600
-	required_blood = 30
+	required_blood = 25
 	centcom_cancast = 0
 	var/jaunt_duration = 50 //in deciseconds
 
@@ -469,12 +469,12 @@
 // Blink for vamps
 // Less smoke spam.
 /obj/effect/proc_holder/spell/vampire/shadowstep
-	name = "Shadowstep (30)"
+	name = "Shadowstep (15)"
 	desc = "Vanish into the shadows."
 	gain_desc = "You have gained the ability to shadowstep, which makes you disappear into nearby shadows at the cost of blood."
 	action_icon_state = "shadowblink"
 	charge_max = 20
-	required_blood = 30
+	required_blood = 15
 	centcom_cancast = 0
 
 	// Teleport radii
