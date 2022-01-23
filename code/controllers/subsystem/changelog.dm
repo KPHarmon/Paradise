@@ -255,6 +255,7 @@ SUBSYSTEM_DEF(changelog)
 	// Handler to open pages in your browser instead of inside the CL window
 	// Yes usr.client is gross here but src is the subsystem
 	// Takes the page to open as an argument
+/*
 	if(href_list["openPage"])
 		switch(href_list["openPage"])
 			if("forum")
@@ -274,3 +275,4 @@ SUBSYSTEM_DEF(changelog)
 		else
 			to_chat(usr, "<span class='danger'>The GitHub URL is not set in the server configuration. PRs cannot be opened from changelog view. Please inform the server host.</span>")
 
+*/

@@ -14,6 +14,7 @@
 		to_chat(src, "<span class='danger'>The wiki URL is not set in the server configuration.</span>")
 	return
 
+/*
 /client/verb/forum()
 	set name = "forum"
 	set desc = "Visit the forum."
@@ -80,9 +81,14 @@
 	else
 		to_chat(src, "<span class='danger'>The rules URL is not set in the server configuration.</span>")
 
+*/
+
+
 /client/verb/hotkeys_help()
 	set name = "Hotkey Help"
 	set category = "OOC"
+
+
 
 	var/adminhotkeys = {"<font color='purple'>
 Admin:
