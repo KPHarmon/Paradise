@@ -474,7 +474,7 @@
 	gain_desc = "You have gained the ability to shadowstep, which makes you disappear into nearby shadows at the cost of blood."
 	action_icon_state = "shadowblink"
 	charge_max = 20
-	required_blood = 15
+	required_blood = 20
 	centcom_cancast = 0
 
 	// Teleport radii
